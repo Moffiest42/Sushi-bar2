@@ -5,7 +5,7 @@ public class Level
     public int Id { get; set; }
     [Required(ErrorMessage = "Некорректный ввод")]
     [RegularExpression(@"^[1-9]\d*$", ErrorMessage = "Некорректный ввод")]
-    [Display(Name = "Номер в меню")]
+    [Display(Name = "Категория")]
     public string? Level_Number { get; set; }
 
     [Required(ErrorMessage = "Некорректный ввод")]
