@@ -58,13 +58,14 @@ namespace Game.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Weapon,LevelId,GamerId")] Character character)
+        public async Task<IActionResult> Create([Bind("Id,Name,Weapon, Level, Gamer")] Character character)
         {
-           // if (ModelState.IsValid)
+          // if (ModelState.IsValid)
             {
                 _context.Add(character);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
+    
             }
             ViewData["GamerId"] = new SelectList(_context.Gamer, "Id", "Name", character.GamerId);
             ViewData["LevelId"] = new SelectList(_context.Level, "Id", "Id", character.LevelId);

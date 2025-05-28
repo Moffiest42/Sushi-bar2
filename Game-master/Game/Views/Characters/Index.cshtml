@@ -19,10 +19,10 @@
                 @Html.DisplayNameFor(model => model.Weapon)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Weapon)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Weapon)
+                @Html.DisplayNameFor(model => model.Level)
+                </td>
+            <td>
+                @Html.DisplayNameFor(model => model.Gamer)
             </th>
             <th></th>
         </tr>
@@ -37,10 +37,10 @@
                 @Html.DisplayFor(modelItem => item.Weapon)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Level.Level_Number)
+                @Html.DisplayFor(modelItem => item.Level)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Gamer.Name)
+                @Html.DisplayFor(modelItem => item.Gamer)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Изменить</a> |

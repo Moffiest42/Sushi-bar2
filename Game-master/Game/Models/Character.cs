@@ -25,4 +25,5 @@ public class Character
     [Display(Name = "цена за штуку")]
     public int? GamerId { get; set; }
     public Gamer? Gamer { get; set; }
+
 }
