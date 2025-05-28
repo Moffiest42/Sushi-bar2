@@ -3,34 +3,34 @@
 public class Gamer
 {
     public int Id { get; set; }
-    [Required(ErrorMessage = "Поле 'Фамилия' обязательно для заполнения")]
-    [RegularExpression(@"^[А-Яа-яЁё\s-]+$", ErrorMessage = "Фамилия должна содержать только русские буквы, пробелы и дефисы")]
+    [Required(ErrorMessage = "Некорректный ввод")]
+    [RegularExpression(@"^[А-Яа-яЁё\s-]+$", ErrorMessage = "Некорректный ввод")]
     [Display(Name = "Фамилия")]
     public string? Surname { get; set; }
 
-    [Required(ErrorMessage = "Поле 'Имя' обязательно для заполнения")]
-    [RegularExpression(@"^[А-Я]+[а-яА-Я\s]*$", ErrorMessage = "Имя должно начинаться с заглавной буквы и содержать только русские буквы")]
+    [Required(ErrorMessage = "Некорректный ввод")]
+    [RegularExpression(@"^[А-Я]+[а-яА-Я\s]*$", ErrorMessage = "Некорректный ввод")]
     [Display(Name = "Имя")]
     public string? Name { get; set; }
 
-    [Required(ErrorMessage = "Поле 'Дата регистрации' обязательно для заполнения")]
+    [Required(ErrorMessage = "Некорректный ввод")]
     [DataType(DataType.Date)]
-    [Display(Name = "Дата регистрации")]
+    [Display(Name = "Дата заказа")]
     public DateTime DataRegistr { get; set; }
 
-    [Required(ErrorMessage = "Поле 'Почта' обязательно для заполнения")]
-    [EmailAddress(ErrorMessage = "Введите корректный email адрес")]
+    [Required(ErrorMessage = "Некорректный ввод")]
+    [EmailAddress(ErrorMessage = "Некорректный ввод")]
     [Display(Name = "Почта")]
     public string? Email { get; set; }
 
-    [Required(ErrorMessage = "Поле 'Пароль' обязательно для заполнения")]
-    [StringLength(100, MinimumLength = 6, ErrorMessage = "Пароль должен быть от 6 до 100 символов")]
+    [Required(ErrorMessage = "Некорректный ввод")]
+    [StringLength(100, MinimumLength = 11, ErrorMessage = "Некорректный ввод")]
     [DataType(DataType.Password)]
-    [Display(Name = "Пароль")]
+    [Display(Name = "Номер телефона")]
     public string? Paswd { get; set; }
 
-    [Required(ErrorMessage = "Поле 'Ранг' обязательно для заполнения")]
-    [Display(Name = "Ранг")]
+    [Required(ErrorMessage = "Некорректный ввод")]
+    [Display(Name = "Ранг остроты")]
     public string? Rank { get; set; }
 
     public ICollection<Character> Characters { get; set; } = new List<Character>();

@@ -1,18 +1,18 @@
 ﻿@model Game.Models.GamerRankViewModel
 
 @{
-    ViewData["Title"] = "Игроки";
+    ViewData["Title"] = "Заказы";
 }
 
-<h1>Игроки</h1>
+<h1>Заказы</h1>
 
 <p>
-    <a asp-action="Create">Создать запись</a>
+    <a asp-action="Create">Добавить заказ</a>
 </p>
 <form asp-controller="Gamers" asp-action="Index" method="get">
     <p>
         <label>
-            Ранг:
+            Поиск
             <select asp-for="GamerRank" asp-items="Model.Rank">
                 <option value="">Все</option>
             </select>
