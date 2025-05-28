@@ -55,7 +55,7 @@ namespace Game.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Level_Number,Bonus,Capability")] Level level)
         {
-            if (ModelState.IsValid)
+           // if (ModelState.IsValid)
             {
                 _context.Add(level);
                 await _context.SaveChangesAsync();

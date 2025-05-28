@@ -60,7 +60,7 @@ namespace Game.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Name,Weapon,LevelId,GamerId")] Character character)
         {
-            if (ModelState.IsValid)
+           // if (ModelState.IsValid)
             {
                 _context.Add(character);
                 await _context.SaveChangesAsync();
