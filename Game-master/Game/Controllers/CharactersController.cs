@@ -21,8 +21,10 @@ namespace Game.Controllers
         // GET: Characters
         public async Task<IActionResult> Index()
         {
-            var gameContext = _context.Character.Include(c => c.Gamer).Include(c => c.Level);
-            return View(await gameContext.ToListAsync());
+            var characters = _context.Character
+                .Include(c => c.Gamer)    // Подгружаем игрока
+                .Include(c => c.Level);   // Подгружаем уровень
+            return View(await characters.ToListAsync());
         }
 
         // GET: Characters/Details/5
@@ -58,14 +60,13 @@ namespace Game.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Weapon, Level, Gamer")] Character character)
+        public async Task<IActionResult> Create([Bind("Id,Name,Weapon,LevelId,GamerId")] Character character)
         {
-          // if (ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 _context.Add(character);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
-    
             }
             ViewData["GamerId"] = new SelectList(_context.Gamer, "Id", "Name", character.GamerId);
             ViewData["LevelId"] = new SelectList(_context.Level, "Id", "Id", character.LevelId);

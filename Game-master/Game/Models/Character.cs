@@ -22,8 +22,9 @@ public class Character
     public Level? Level { get; set; }
 
     [Required(ErrorMessage = "Некорректный ввод")]
-    [Display(Name = "цена за штуку")]
+    [Display(Name = "Чаще всего заказывает")]
     public int? GamerId { get; set; }
     public Gamer? Gamer { get; set; }
 
+   
 }

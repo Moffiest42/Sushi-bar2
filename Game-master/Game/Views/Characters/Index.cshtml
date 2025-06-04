@@ -9,45 +9,30 @@
 <p>
     <a asp-action="Create">Добавить блюдо</a>
 </p>
-<table class="table">
-    <thead>
+<table class="table table-striped">
+    <thead class="thead-dark">
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Weapon)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Level)
-                </td>
-            <td>
-                @Html.DisplayNameFor(model => model.Gamer)
-            </th>
-            <th></th>
+            <th>Название</th>
+            <th>Тип</th>
+            <th>Количество</th> <!-- Level_Number -->
+            <th>Описание</th> <!-- Gamer.Name -->
+            <th>Действия</th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Weapon)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Level)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Gamer)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Изменить</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Подробнее</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Weapon</td>
+                <td>@item.Level?.Level_Number</td>
+                <td>@item.Gamer?.Name</td>
+                <td>
+                    <a class="btn btn-sm btn-warning" asp-action="Edit" asp-route-id="@item.Id">✏️</a>
+                    <a class="btn btn-sm btn-info" asp-action="Details" asp-route-id="@item.Id">🔍</a>
+                    <a class="btn btn-sm btn-danger" asp-action="Delete" asp-route-id="@item.Id">🗑️</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
